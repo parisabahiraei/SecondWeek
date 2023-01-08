@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Weather Ap</title>
+  </head>
+  <style>
+    h1 {
+      color: #1a64d6;
+      font-weight: bolder;
+      font-size: 35px;
+      text-align: center;
+      font-family: "Times New Roman", Times, serif;
+      margin: 5px;
+      font-family: Arial, Helvetica, sans-serif;
+    }
+    .firstemoji {
+      font-size: xx-large;
+      text-align: center;
+    }
+    h2 {
+      text-align: center;
+      margin: 5px;
+      font-family: Arial, Helvetica, sans-serif;
+      font-weight: 400;
+      font-size: 35px;
+    }
+    button {
+      background-color: #1a64d6;
+      color: aliceblue;
+      font-family: Arial, Helvetica, sans-serif;
+      font-size: large;
+      font-weight: 400;
+      border-radius: 30px;
+      border-color: #1a64d6;
+      border-width: thin;
+      padding: 20px;
+      transition: all 200ms ease-in-out;
+      display: block;
+      margin: 10px auto;
+      box-shadow: 5px 5px 10px darkgray;
+    }
+    button:hover {
+      background-color: aliceblue;
+      color: #1a64d6;
+      cursor: pointer;
+    }
+    ul {
+      text-align: center;
+      list-style-type: none;
+      padding: 0;
+      font-size: large;
+      margin: 0px;
+      font-family: Arial, Helvetica, sans-serif;
+    }
+    li {
+      padding: 25px 0px;
+      border-radius: 10px;
+      width: 380px;
+      display: block;
+      margin: 0 auto;
+    }
+    p {
+      color: grey;
+      text-align: center;
+      font-family: Arial, Helvetica, sans-serif;
+    }
+    h3 {
+      margin: 0px;
+    }
+    li:hover {
+      background-color: #fffbef;
+    }
+  </style>
+  <body>
+    <div class="firstemoji">🌤️</div>
+    <h1>Currently 21&#176; in Tokyo</h1>
+    <h2>
+      13&#176; /
+      <strong>23&#176; </strong>
+    </h2>
+    <ul>
+      <li>
+        <h3>🌧️Tomorrow</h3>
+        <p>10&#176; / <strong>22&#176;</strong></p>
+      </li>
+      <li>
+        <h3>⛅Saturday</h3>
+        <p>15&#176; / <strong>17&#176;</strong></p>
+      </li>
+      <li>
+        <h3>🌞Sunday</h3>
+        <p>25&#176; / <strong>28&#176;</strong></p>
+      </li>
+    </ul>
+    <button>Change City</button>
+    <p>Coded by Parisa Bahiraei</p>
+    <script>
+      function updateEmoji(newEmoji) {
+        let emoji = document.querySelector(".firstemoji");
+        emoji.innerHTML = newEmoji;
+      }
+      function updateHeading(newHeading) {
+        let heading = document.querySelector("h1");
+        heading.innerHTML = newHeading;
+      }
+      function changeCity() {
+        let city = prompt("What city do you live in?");
+        let temp = prompt("What temperature is it?");
+
+        updateHeading(`Currently ${temp}&#176; in ${city}`);
+
+        if (temp > 25) {
+          updateEmoji("🥵");
+        } else {
+          if (temp <= 0) {
+            updateEmoji("🥶");
+          } else {
+            updateEmoji("😄");
+          }
+        }
+      }
+
+      let changeCityButton = document.querySelector("button");
+      changeCityButton.addEventListener("click", changeCity);
+    </script>
+  </body>
+</html>
